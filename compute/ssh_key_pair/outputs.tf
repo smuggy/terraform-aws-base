@@ -1,7 +1,3 @@
-output private_key_pem {
-  value = module.key_pair.private_key_pem
-}
-
 output public_key_ssh {
   value = aws_key_pair.pair.public_key
 }
