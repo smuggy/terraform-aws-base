@@ -148,7 +148,7 @@ resource aws_security_group public_node {
   vpc_id = aws_vpc.vpc.id
 }
 
-resource aws_security_group_rule https {
+resource aws_security_group_rule public_egress {
   security_group_id = aws_security_group.public_node.id
   type              = "egress"
   protocol          = "-1"
