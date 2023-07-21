@@ -143,6 +143,20 @@ resource aws_security_group_rule https {
   cidr_blocks       = [var.cidr_block]
 }
 
+resource aws_security_group public_node {
+  name   = "public_node_sg"
+  vpc_id = aws_vpc.vpc.id
+}
+
+resource aws_security_group_rule https {
+  security_group_id = aws_security_group.public_node.id
+  type              = "egress"
+  protocol          = "-1"
+  from_port         = 0
+  to_port           = 0
+  cidr_blocks       = ["0.0.0.0"]
+}
+
 resource aws_vpc_dhcp_options dhcp {
   domain_name         = var.domain_name
   domain_name_servers = ["AmazonProvidedDNS"]
