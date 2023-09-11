@@ -97,6 +97,7 @@ resource aws_subnet private_az_c {
 resource aws_vpc_endpoint s3_endpoint {
   vpc_id       = aws_vpc.vpc.id
   service_name = "com.amazonaws.us-east-2.s3"
+  subnet_ids = [aws_subnet.private_az_a.id, aws_subnet.private_az_b.id, aws_subnet.private_az_c.id]
 }
 
 resource aws_vpc_endpoint_route_table_association s3_route {
