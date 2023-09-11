@@ -104,7 +104,7 @@ resource aws_vpc_endpoint s3_endpoint {
 }
 
 resource aws_vpc_endpoint_route_table_association s3_route {
-  route_table_id  = var.private_subnet ? aws_route_table.private_table.id : aws_default_route_table.drt.id
+  route_table_id  = var.private_subnet ? aws_route_table.private_table[0].id : aws_default_route_table.drt.id
   vpc_endpoint_id = aws_vpc_endpoint.s3_endpoint.id
 }
 
