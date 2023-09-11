@@ -5,6 +5,7 @@ resource aws_vpc vpc {
     Name = var.vpc_name
   }, var.addl_tags)
 }
+
 locals {
   private_1_cidr = cidrsubnet(var.cidr_block, 2, 0)
   private_2_cidr = cidrsubnet(var.cidr_block, 2, 1)
@@ -97,7 +98,6 @@ resource aws_subnet private_az_c {
 resource aws_vpc_endpoint s3_endpoint {
   vpc_id       = aws_vpc.vpc.id
   service_name = "com.amazonaws.us-east-2.s3"
-  subnet_ids = [aws_subnet.private_az_a.id, aws_subnet.private_az_b.id, aws_subnet.private_az_c.id]
   tags = {
     "Name": "S3 Gateway"
   }
