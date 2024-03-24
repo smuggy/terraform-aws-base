@@ -55,6 +55,7 @@ resource aws_ebs_volume volume {
   availability_zone = var.az
   size              = var.volume_size
   count             = var.volume_size > 0 ? 1 : 0
+  type              = var.volume_type
 
   tags = {
     Name = "${var.app}_volume_${var.server_group}"

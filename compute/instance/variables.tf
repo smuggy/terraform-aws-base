@@ -30,6 +30,10 @@ variable volume_size {
   type    = number
 }
 
+variable volume_type {
+  default = "gp2"
+}
+
 variable server_group {
   default = 1
   type    = number
