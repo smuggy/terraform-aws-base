@@ -34,6 +34,7 @@ resource aws_instance server {
 
   root_block_device {
     volume_size = 10
+    volume_type = var.volume_type
   }
 
   tags = {

@@ -31,7 +31,7 @@ variable volume_size {
 }
 
 variable volume_type {
-  default = "gp2"
+  default = "gp3"
 }
 
 variable server_group {
